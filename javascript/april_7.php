@@ -26,32 +26,22 @@
                 n2 = nextSequence;
 
                 document.getElementById("output").innerHTML += i + " = " + n1 + "<br>";
-            }           
+            }      
+            
+            if (inputNum < 0){
+                document.getElementById("output").innerHTML = "Please number a real number";
+            }
         }
 
         function checkQuarantine () {
             let inputAge = document.getElementById('age').value;
 
-            // if(inputAge < 21){
-            //     document.getElementById("output_age").innerHTML = "Bata ka pa. Puyo balay";
-            // }
-            // else if(inputAge > 65){
-            //     document.getElementById("output_age").innerHTML = "Tigulang ka na. PAGPUYO!";
-            // }
-            // else if(inputAge >=21 && inputAge <= 65){
-            //     document.getElementById("output_age").innerHTML = "CGE GO! LAAG!";
-            // }
-            // else if(inputAge = null){
-            //     console.log("nganu ni?");
-            // }
-            // else{
-            //     alert("ERROR!");
-            // }
-            
-
             if(inputAge == ''){
                 document.getElementById("output_age").innerHTML = "Please input your age. You are not an alien";
             } 
+            else if(inputAge < 0){
+                document.getElementById("output_age").innerHTML = "Enter your real age please.";
+            }
             else if(inputAge < 21){
                  document.getElementById("output_age").innerHTML = "Bata ka pa. Puyo balay";
             }
@@ -70,12 +60,12 @@
 <body>
 
     <h3>Fibonacci Excercise</h3>
-    <input type="text" id="limit" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+    <input type="number" id="limit" placeholder="Enter Numbers Only">
     <button onclick="calcFibo()">calculate range</button>
     <div id="output"></div>
 
     <h3>Quarantine Excercise</h3>
-        Age (from 1 to 100): <input type="text" id="age" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+        Age (from 1 to 100): <input type="number" id="age" placeholder="Enter Numbers Only">
         <button onclick="checkQuarantine()">Can I go out?</button>
         <div id="output_age"></div>
 </body>
